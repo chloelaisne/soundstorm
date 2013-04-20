@@ -9,13 +9,11 @@
         <!--</div>-->
     <!--</div>-->
 
-    <input type="text" ng-model="search" />
-
-    <div class="row" ng-repeat="sound in sounds | filter:search | orderBy:'title':true ">
+    <div class="row" ng-repeat="(id, sound) in sounds">
         <div class="span2">
             <strong>{{ sound.title }}<strong><br/>
-            <a href ng-click="player.muteTrack(sound)">Mute</a>
-            <a href ng-click="player.unmuteTrack(sound)">Unmute</a>
+            <a href ng-click="player.muteTrack(id)">Mute</a>
+            <a href ng-click="player.unmuteTrack(id)">Unmute</a>
         </div>
         <div class="progress span10">
             <div class="bar" style="width: {{ position / (3 * 60 * 10) }}%"></div>

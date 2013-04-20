@@ -13,10 +13,9 @@ angular.module('soundstormApp')
 
             $scope.sounds = data.sounds;
 
-            for (var i = 0, l = data.sounds.length; i < l; i ++) {
-                var track = data.sounds[i];
-                player.addTrack(track);
-            }
+            angular.forEach(data.sounds, function(track, id){
+                player.addTrack(track, id);
+            });
 
         });
     }
