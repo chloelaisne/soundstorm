@@ -14,4 +14,12 @@ angular.module('soundstormApp', [])
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }).run(function() {
+
+
+      // init soundmanager
+      //soundManager.setup({
+          //url: 'components/soundmanager/swf'
+      //});
+
+  })

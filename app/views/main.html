@@ -1,9 +1,34 @@
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+<div class="set">
+
+    <!--<div class="row">-->
+        <!--<div class="span2">-->
+            <!--Titles-->
+        <!--</div>-->
+        <!--<div class="span10">-->
+            <!--<span class="progress-line" style="left: {{ position / (3 * 60 * 10) }}%"></span>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class="row" ng-repeat="(id, sound) in sounds">
+        <div class="span2">
+            <strong>{{ sound.title }}<strong><br/>
+            <a href ng-click="player.muteTrack(id)">Mute</a>
+            <a href ng-click="player.unmuteTrack(id)">Unmute</a>
+        </div>
+        <div class="progress span10">
+            <div class="bar" style="width: {{ position / (3 * 60 * 10) }}%"></div>
+        </div>
+    </div>
+
+
+    <a ng-hide="player.playState == 'playing'" class="btn" ng-click="player.playAll()">Play</a>
+    <a ng-show="player.playState == 'playing'" class="btn" ng-click="player.pauseAll()">Stop</a>
+
+
+
+    <p>
+    <strong>{{ Math.floor(position / 1000) }}s</strong>
+    </p>
+
 </div>
+
