@@ -1,9 +1,23 @@
-    <ul>
-        <li ng-repeat="sound in sounds">
+<div class="set">
+    <div class="progress-line" style="left: {{ position / (3 * 60 * 10) }}%">
+    </div>
+
+
+    <div ng-repeat="sound in sounds">
         {{ sound.title }}
-        </li>
-    </ul>
+        <div class="progress">
+            <div class="bar" ></div>
+        </div>
+    </div>
 
 
-    <a ng-show="playState == 'stop'" class="btn" ng-click="playAll()">Play</a>
-    <a ng-show="playState == 'playing'" class="btn" ng-click="stopAll()">Stop</a>
+    <a ng-hide="playState == 'playing'" class="btn" ng-click="playAll()">Play</a>
+    <a ng-show="playState == 'playing'" class="btn" ng-click="pauseAll()">Stop</a>
+
+
+    <p>
+    <strong>{{ Math.floor(position / 1000) }}s</strong>
+    </p>
+
+</div>
+

@@ -3,16 +3,23 @@
 angular.module('soundstormApp')
 .controller('MainCtrl', function ($scope, $http, player) {
 
+    $scope.Math = window.Math;
+
     $scope.playState = 'stop';
 
     $scope.playAll = function() {
         player.playAll()
-        $scope.playState = 'playing';
+        $scope.playState = player.playState;
     }
 
     $scope.stopAll = function () {
         player.stopAll()
-        $scope.playState = 'stop';
+        $scope.playState = player.playState;
+    }
+
+    $scope.pauseAll = function () {
+        player.pauseAll()
+        $scope.playState = player.playState;
     }
 
     var loadAndPlay = function() {
@@ -25,9 +32,6 @@ angular.module('soundstormApp')
                 var track = data.sounds[i];
                 player.addTrack(track);
             }
-
-            player.playAll();
-            $scope.playState = 'playing';
 
         });
     }

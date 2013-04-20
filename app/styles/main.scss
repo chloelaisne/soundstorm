@@ -1,1 +1,16 @@
 @import "compass_twitter_bootstrap";
+
+.progress {
+    height: 100px;
+}
+
+.progress-line {
+    width: 1px;
+    background: red;
+    height: 1000px;
+    position: absolute;
+}
+
+.set {
+    position: relative;
+}
