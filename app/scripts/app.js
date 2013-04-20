@@ -7,6 +7,10 @@ angular.module('soundstormApp', [])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/volume', {
+        templateUrl: 'views/volume.html',
+        controller: 'VolumeCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

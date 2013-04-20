@@ -1,1 +1,17 @@
 @import "compass_twitter_bootstrap";
+
+
+div.volume {
+	width: 250px;
+	height: 100px;
+	background-color: #eeeeee;
+	position: relative;
+}
+
+span.dot {
+	width: 5px;
+	height: 5px;
+	display: block;
+	background-color: #000000;
+	position: absolute;
+}
