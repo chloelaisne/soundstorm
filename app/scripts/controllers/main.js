@@ -5,22 +5,7 @@ angular.module('soundstormApp')
 
     $scope.Math = window.Math;
 
-    $scope.playState = 'stop';
-
-    $scope.playAll = function() {
-        player.playAll()
-        $scope.playState = player.playState;
-    }
-
-    $scope.stopAll = function () {
-        player.stopAll()
-        $scope.playState = player.playState;
-    }
-
-    $scope.pauseAll = function () {
-        player.pauseAll()
-        $scope.playState = player.playState;
-    }
+    $scope.player = player;
 
     var loadAndPlay = function() {
         // Load sounds
