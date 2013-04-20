@@ -1,17 +1,20 @@
 {
-    "sounds" : {
-        "s1" : {
+    "sounds" : [
+        {
+            "id": "s1",
             "uri" : "sounds/daft.mp3",
             "title": "Daft Punk - Get Lucky"
         },
-        "s2": {
+        {
+            "id": "s2",
             "uri" : "sounds/dance.mp3",
             "title": "Roberto Rodriguez - Dance Like Nobody s Watching"
         },
-        "s3" : {
+        {
+            "id" : "s3",
             "uri" : "sounds/letmego.mp3",
             "title": "Deep Future - Let Me Go"
         }
-    }
+    ]
 }
 

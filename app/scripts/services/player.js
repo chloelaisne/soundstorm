@@ -13,12 +13,12 @@ angular.module('soundstormApp').service('player', function ($rootScope) {
         this.playState = "playing";
     }
 
-    Player.prototype.muteTrack = function(trackId) {
-        this.soundIndex[trackId].mute()
+    Player.prototype.muteTrack = function(track) {
+        this.soundIndex[track.id].mute()
     }
 
-    Player.prototype.unmuteTrack = function(trackId) {
-        this.soundIndex[trackId].unmute()
+    Player.prototype.unmuteTrack = function(track) {
+        this.soundIndex[track.id].unmute()
     }
 
     Player.prototype.stopAll = function(){
@@ -35,12 +35,12 @@ angular.module('soundstormApp').service('player', function ($rootScope) {
         this.playState = "pause";
     }
 
-    Player.prototype.addTrack = function(track, id){
+    Player.prototype.addTrack = function(track){
 
         var self = this;
 
         var sound = soundManager.createSound({
-            id: id,
+            id: track.id,
             url: track.uri,
             whileplaying: function() {
                 self.position = this.position;
@@ -50,7 +50,7 @@ angular.module('soundstormApp').service('player', function ($rootScope) {
         });
 
         // maintain the soundIndex object up to date
-        this.soundIndex[id] = sound;
+        this.soundIndex[track.id] = sound;
 
         this.sounds.push(sound);
     }

@@ -9,11 +9,11 @@
         <!--</div>-->
     <!--</div>-->
 
-    <div class="row" ng-repeat="(id, sound) in sounds">
+    <div class="row" ng-repeat="sound in sounds">
         <div class="span2">
             <strong>{{ sound.title }}<strong><br/>
-            <a href ng-click="player.muteTrack(id)">Mute</a>
-            <a href ng-click="player.unmuteTrack(id)">Unmute</a>
+            <a class="btn btn-small" href ng-click="player.muteTrack(sound)"><i class="icon-volume-off"></i></a>
+            <a class="btn btn-small" href ng-click="player.unmuteTrack(sound)"><i class="icon-volume-up"></i></a>
         </div>
         <div class="progress span10">
             <div class="bar" style="width: {{ position / (3 * 60 * 10) }}%"></div>
@@ -21,8 +21,8 @@
     </div>
 
 
-    <a ng-hide="player.playState == 'playing'" class="btn" ng-click="player.playAll()">Play</a>
-    <a ng-show="player.playState == 'playing'" class="btn" ng-click="player.pauseAll()">Stop</a>
+    <a ng-hide="player.playState == 'playing'" class="btn btn-large" ng-click="player.playAll()"><i class="icon-play"></i></a>
+    <a ng-show="player.playState == 'playing'" class="btn btn-large" ng-click="player.pauseAll()"><i class="icon-pause"></i></a>
 
 
 
