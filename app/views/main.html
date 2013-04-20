@@ -1,10 +1,7 @@
 <div class="hero-unit">
-    <ul playlist>
+    <ul>
         <li ng-repeat="sound in sounds">
-        {{ sound.title }}<br>
-            <audio controls>
-                <source src="{{ sound.uri }}" />
-            </audio>
+        {{ sound.title }}
         </li>
     </ul>
 </div>

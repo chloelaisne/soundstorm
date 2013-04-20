@@ -1,15 +1,15 @@
 {
     "sounds": [
         {
-        "uri" : "sounds/daft.m4a",
+        "uri" : "sounds/daft.mp3",
         "title": "Daft Punk - Get Lucky"
         },
         {
-        "uri" : "sounds/dance.m4a",
+        "uri" : "sounds/dance.mp3",
         "title": "Roberto Rodriguez - Dance Like Nobody s Watching"
         },
         {
-        "uri" : "sounds/letmego.m4a",
+        "uri" : "sounds/letmego.mp3",
         "title": "Deep Future - Let Me Go"
         }
     ]
