@@ -1,7 +1,9 @@
-<div class="hero-unit">
     <ul>
         <li ng-repeat="sound in sounds">
         {{ sound.title }}
         </li>
     </ul>
-</div>
+
+
+    <a ng-show="playState == 'stop'" class="btn" ng-click="playAll()">Play</a>
+    <a ng-show="playState == 'playing'" class="btn" ng-click="stopAll()">Stop</a>

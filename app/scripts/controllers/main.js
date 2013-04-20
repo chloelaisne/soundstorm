@@ -3,6 +3,18 @@
 angular.module('soundstormApp')
 .controller('MainCtrl', function ($scope, $http, player) {
 
+    $scope.playState = 'stop';
+
+    $scope.playAll = function() {
+        player.playAll()
+        $scope.playState = 'playing';
+    }
+
+    $scope.stopAll = function () {
+        player.stopAll()
+        $scope.playState = 'stop';
+    }
+
     var loadAndPlay = function() {
         // Load sounds
         $http.get('datas/sounds.json').success(function(data) {
@@ -15,7 +27,7 @@ angular.module('soundstormApp')
             }
 
             player.playAll();
-
+            $scope.playState = 'playing';
 
         });
     }
