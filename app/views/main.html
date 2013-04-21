@@ -16,7 +16,7 @@
             <a class="btn btn-small" ng-show="sound.muted" href ng-click="player.unmuteTrack(sound)"><i class="icon-volume-up"></i></a>
         </div>
         <div class="progress span10">
-            <div class="bar" style="width: {{ position / (3 * 60 * 10) }}%"></div>
+            <div class="bar" style="width: {{ player.position / (3 * 60 * 10) }}%"></div>
         </div>
     </div>
 
