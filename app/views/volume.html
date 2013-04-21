@@ -1,6 +1,8 @@
-<div>
-  <div class="volume" ng-click="getCoordinates($event)">
-  	<div curve type='cool' ></div>
-  	<span class="dot" ng-repeat="dot in dots" style="left: {{dot.left}}px; top:{{dot.top}}px;"></span>
+<div ng-controller="VolumeCtrl">
+  <div class="volume" ng-click="addDot($event)">
+  	<div curve></div>
+  	<ul>
+  		<li ng-repeat="dot in dotsLevel" class="dot"style="left: {{dot.time}}px; top:{{dot.level}}px;"></li>
+  	</ul>
   </div>
 </div>

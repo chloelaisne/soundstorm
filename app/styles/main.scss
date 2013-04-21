@@ -7,9 +7,16 @@ div.volume {
 	position: relative;
 }
 
-span.dot {
-	width: 5px;
-	height: 5px;
+canvas {
+	width: 250px;
+	height: 100px;
+}
+
+li.dot {
+	width: 4px;
+	height: 4px;
+	margin-top: -4px;
+	margin-left: -2px;
 	display: block;
 	background-color: #000000;
 	position: absolute;
