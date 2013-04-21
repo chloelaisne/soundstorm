@@ -12,22 +12,20 @@
     <div class="row" ng-repeat="sound in sounds">
         <div class="span2">
             <strong>{{ sound.title }}<strong><br/>
-            <a class="btn btn-small" href ng-click="player.muteTrack(sound)"><i class="icon-volume-off"></i></a>
-            <a class="btn btn-small" href ng-click="player.unmuteTrack(sound)"><i class="icon-volume-up"></i></a>
+            <a class="btn btn-small" ng-hide="sound.muted" href ng-click="player.muteTrack(sound)"><i class="icon-volume-off"></i></a>
+            <a class="btn btn-small" ng-show="sound.muted" href ng-click="player.unmuteTrack(sound)"><i class="icon-volume-up"></i></a>
         </div>
         <div class="progress span10">
             <div class="bar" style="width: {{ position / (3 * 60 * 10) }}%"></div>
         </div>
     </div>
 
-
     <a ng-hide="player.playState == 'playing'" class="btn btn-large" ng-click="player.playAll()"><i class="icon-play"></i></a>
     <a ng-show="player.playState == 'playing'" class="btn btn-large" ng-click="player.pauseAll()"><i class="icon-pause"></i></a>
 
 
-
     <p>
-    <strong>{{ Math.floor(position / 1000) }}s</strong>
+    <strong>{{ Math.floor(player.position / 1000) }}s</strong>
     </p>
 
 </div>

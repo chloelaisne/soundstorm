@@ -10,29 +10,36 @@ angular.module('soundstormApp').service('player', function ($rootScope) {
         for (var i = 0, l = this.sounds.length; i < l; i ++) {
             this.sounds[i].play();
         }
-        this.playState = "playing";
+        this.setPlayState('playing');
     }
 
     Player.prototype.muteTrack = function(track) {
         this.soundIndex[track.id].mute()
+        $rootScope.$broadcast('player.track.muted', track);
     }
 
     Player.prototype.unmuteTrack = function(track) {
         this.soundIndex[track.id].unmute()
+        $rootScope.$broadcast('player.track.unmuted', track);
     }
 
     Player.prototype.stopAll = function(){
         for (var i = 0, l = this.sounds.length; i < l; i ++) {
             this.sounds[i].stop();
         }
-        this.playState = "stop";
+        this.setPlayState('stop');
     }
 
     Player.prototype.pauseAll = function(){
         for (var i = 0, l = this.sounds.length; i < l; i ++) {
             this.sounds[i].pause();
         }
-        this.playState = "pause";
+        this.setPlayState('pause');
+    }
+
+    Player.prototype.setPlayState = function (playState){
+        this.playState = playState;
+        $rootScope.$broadcast('player.playstate.updated', playState);
     }
 
     Player.prototype.addTrack = function(track){
@@ -44,8 +51,7 @@ angular.module('soundstormApp').service('player', function ($rootScope) {
             url: track.uri,
             whileplaying: function() {
                 self.position = this.position;
-                $rootScope.position = this.position;
-                $rootScope.$apply('position');
+                $rootScope.$broadcast('player.position.updated', self.position);
             }
         });
 
@@ -54,6 +60,7 @@ angular.module('soundstormApp').service('player', function ($rootScope) {
 
         this.sounds.push(sound);
     }
+
 
     return new Player();
 });

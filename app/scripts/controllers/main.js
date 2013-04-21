@@ -20,6 +20,27 @@ angular.module('soundstormApp')
         });
     }
 
+    // catch player events
+    $scope.$on('player.playstate.updated', function(event, playstate) {
+        $scope.safeApply('player.playstate');
+    });
+
+    $scope.$on('player.position.updated', function(event, position) {
+        $scope.safeApply('player.position');
+    });
+
+    $scope.$on('player.track.muted', function(event, track) {
+        $scope.safeApply(function() {
+            track.muted = true;
+        });
+    });
+
+    $scope.$on('player.track.unmuted', function(event, track) {
+        $scope.safeApply(function() {
+            track.muted = false;
+        });
+    });
+
     // init SM
     soundManager.setup({
         url: 'components/soundmanager/swf',
